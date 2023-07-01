@@ -6,7 +6,7 @@ class Product(models.Model):
     name = models.CharField("Product Name", default="Product", max_length=200)
     price = models.IntegerField("Product Price", default=0)
     stock = models.IntegerField("Product Stock", default=0)
-    description = models.TextField("Product Description", default=None, max_length=300)
+    description = models.TextField("Product Description", default="", max_length=300)
     image = models.ImageField("Product Image", default=None)
 
     def __str__(self):

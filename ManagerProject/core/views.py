@@ -15,7 +15,7 @@ def inventory(request):
     products_list = core_models.Product.objects.all()
 
     context = {
-        products_list: 'products_list'
+        'products_list': products_list
     }
 
-    return render(request, 'core/inventory.html', context)
+    return render(request, 'core/inventory.html', context=context)
