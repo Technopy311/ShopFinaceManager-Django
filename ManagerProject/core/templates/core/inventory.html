@@ -1,0 +1,67 @@
+{% extends 'core/base.html' %}
+
+
+{% block inbody %}
+
+<main>
+  
+  <div class="container d-flex justify-content-center align-items-center mt-3">
+    <form class="d-flex w-75" role="search" method="post">
+      <input class="form-control me-2 w-100" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success" type="submit">Search</button>
+      {%csrf_token%}
+    </form>
+  </div>
+
+  <div class="container-fluid my-5 d-flex flex-wrap p-5 justify-content-evenly">
+
+    <div class="card m-2" style="width: 18rem;">
+      <img class="p-4" src="https://www.lenovo.com/medias/lenovo-laptops-thinkbook-16-gen-4-intel-hero.png?context=bWFzdGVyfHJvb3R8MzQ1OTM2fGltYWdlL3BuZ3xoMjEvaGZkLzEzMjU1MTI1OTkxNDU0LnBuZ3xlMGJjMDAyZjIzYzczYmY0YTY3NTlmODcwMDJjZTBhMzg5M2VlMjFlNTNlZWJkZDMyNDA3MTdlNjc3NjhhZWY5" class="card-img-top" alt="...">
+      <div class="card-body border-top">
+        <h5 class="card-title">Laptop</h5>
+        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        <a href="#" >Edit product</a>
+      </div>
+    </div>
+    <div class="card m-2" style="width: 18rem;">
+      <img class="p-4" src="https://www.lenovo.com/medias/lenovo-laptops-thinkbook-16-gen-4-intel-hero.png?context=bWFzdGVyfHJvb3R8MzQ1OTM2fGltYWdlL3BuZ3xoMjEvaGZkLzEzMjU1MTI1OTkxNDU0LnBuZ3xlMGJjMDAyZjIzYzczYmY0YTY3NTlmODcwMDJjZTBhMzg5M2VlMjFlNTNlZWJkZDMyNDA3MTdlNjc3NjhhZWY5" class="card-img-top" alt="...">
+      <div class="card-body border-top">
+        <h5 class="card-title">Laptop</h5>
+        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        <a href="#" >Edit product</a>
+      </div>
+    </div>
+    <div class="card m-2" style="width: 18rem;">
+      <img class="p-4" src="https://www.lenovo.com/medias/lenovo-laptops-thinkbook-16-gen-4-intel-hero.png?context=bWFzdGVyfHJvb3R8MzQ1OTM2fGltYWdlL3BuZ3xoMjEvaGZkLzEzMjU1MTI1OTkxNDU0LnBuZ3xlMGJjMDAyZjIzYzczYmY0YTY3NTlmODcwMDJjZTBhMzg5M2VlMjFlNTNlZWJkZDMyNDA3MTdlNjc3NjhhZWY5" class="card-img-top" alt="...">
+      <div class="card-body border-top">
+        <h5 class="card-title">Laptop</h5>
+        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        <a href="#" >Edit product</a>
+      </div>
+    </div>
+    <div class="card m-2" style="width: 18rem;">
+      <img class="p-4" src="https://www.lenovo.com/medias/lenovo-laptops-thinkbook-16-gen-4-intel-hero.png?context=bWFzdGVyfHJvb3R8MzQ1OTM2fGltYWdlL3BuZ3xoMjEvaGZkLzEzMjU1MTI1OTkxNDU0LnBuZ3xlMGJjMDAyZjIzYzczYmY0YTY3NTlmODcwMDJjZTBhMzg5M2VlMjFlNTNlZWJkZDMyNDA3MTdlNjc3NjhhZWY5" class="card-img-top" alt="...">
+      <div class="card-body border-top">
+        <h5 class="card-title">Laptop</h5>
+        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        <a href="#" >Edit product</a>
+      </div>
+    </div>
+  
+  </div>
+
+            
+</main>
+
+{% endblock %}
+
+{% block scripts %}
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+    
+</script>
+
+
+{% endblock %}
