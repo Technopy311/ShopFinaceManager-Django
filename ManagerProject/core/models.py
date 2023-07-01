@@ -6,3 +6,35 @@ class Product(models.Model):
     name = models.CharField("Product Name", default="Product", max_length=200)
     price = models.IntegerField("Product Price", default=0)
     stock = models.IntegerField("Product Stock", default=0)
+    description = models.TextField("Product Description", default=None, max_length=300)
+    image = models.ImageField("Product Image", default=None)
+
+    def __str__(self):
+        return f"{self.name} -- {self.price} -- {self.stock}"
+
+
+class Order(models.Model):
+    created_datetime = models.DateTimeField("Created datetime", auto_now_add=True)
+    updated_datetime = models.DateTimeField("Updated datetime", auto_now=True)
+    product = models.ForeignKey(
+        "Product",
+        on_delete=models.CASCADE,
+        )
+
+
+class Payment(models.Model):
+    order = models.ForeignKey(Order, on_delete=models.CASCADE)
+    amount = models.IntegerField("Cantidad de Pago", default=0)
+    
+    # Payment Methods
+    DEBIT = "DEBI"
+    CREDIT = "CRED"
+    CASH = "CASH"
+    OTHER = "OTR"
+    
+    payment_method_choices = [
+        (DEBIT, "Debit Card"),
+        (CREDIT, "Credit Card"),
+        (CASH, "Cash"),
+        (OTHER, "Other Method")
+    ]

@@ -15,38 +15,18 @@
 
   <div class="container-fluid my-5 d-flex flex-wrap p-5 justify-content-evenly">
 
+    {% for product in products_list %}
     <div class="card m-2" style="width: 18rem;">
       <img class="p-4" src="https://www.lenovo.com/medias/lenovo-laptops-thinkbook-16-gen-4-intel-hero.png?context=bWFzdGVyfHJvb3R8MzQ1OTM2fGltYWdlL3BuZ3xoMjEvaGZkLzEzMjU1MTI1OTkxNDU0LnBuZ3xlMGJjMDAyZjIzYzczYmY0YTY3NTlmODcwMDJjZTBhMzg5M2VlMjFlNTNlZWJkZDMyNDA3MTdlNjc3NjhhZWY5" class="card-img-top" alt="...">
       <div class="card-body border-top">
-        <h5 class="card-title">Laptop</h5>
+        <h5 class="card-title">{{product.name}}</h5>
         <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        <p class="card-text">$ {{product.price}}</p>
         <a href="#" >Edit product</a>
       </div>
     </div>
-    <div class="card m-2" style="width: 18rem;">
-      <img class="p-4" src="https://www.lenovo.com/medias/lenovo-laptops-thinkbook-16-gen-4-intel-hero.png?context=bWFzdGVyfHJvb3R8MzQ1OTM2fGltYWdlL3BuZ3xoMjEvaGZkLzEzMjU1MTI1OTkxNDU0LnBuZ3xlMGJjMDAyZjIzYzczYmY0YTY3NTlmODcwMDJjZTBhMzg5M2VlMjFlNTNlZWJkZDMyNDA3MTdlNjc3NjhhZWY5" class="card-img-top" alt="...">
-      <div class="card-body border-top">
-        <h5 class="card-title">Laptop</h5>
-        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-        <a href="#" >Edit product</a>
-      </div>
-    </div>
-    <div class="card m-2" style="width: 18rem;">
-      <img class="p-4" src="https://www.lenovo.com/medias/lenovo-laptops-thinkbook-16-gen-4-intel-hero.png?context=bWFzdGVyfHJvb3R8MzQ1OTM2fGltYWdlL3BuZ3xoMjEvaGZkLzEzMjU1MTI1OTkxNDU0LnBuZ3xlMGJjMDAyZjIzYzczYmY0YTY3NTlmODcwMDJjZTBhMzg5M2VlMjFlNTNlZWJkZDMyNDA3MTdlNjc3NjhhZWY5" class="card-img-top" alt="...">
-      <div class="card-body border-top">
-        <h5 class="card-title">Laptop</h5>
-        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-        <a href="#" >Edit product</a>
-      </div>
-    </div>
-    <div class="card m-2" style="width: 18rem;">
-      <img class="p-4" src="https://www.lenovo.com/medias/lenovo-laptops-thinkbook-16-gen-4-intel-hero.png?context=bWFzdGVyfHJvb3R8MzQ1OTM2fGltYWdlL3BuZ3xoMjEvaGZkLzEzMjU1MTI1OTkxNDU0LnBuZ3xlMGJjMDAyZjIzYzczYmY0YTY3NTlmODcwMDJjZTBhMzg5M2VlMjFlNTNlZWJkZDMyNDA3MTdlNjc3NjhhZWY5" class="card-img-top" alt="...">
-      <div class="card-body border-top">
-        <h5 class="card-title">Laptop</h5>
-        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-        <a href="#" >Edit product</a>
-      </div>
-    </div>
+    {% endfor %}
+    
   
   </div>
 
