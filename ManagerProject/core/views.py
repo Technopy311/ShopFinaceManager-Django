@@ -18,4 +18,16 @@ def inventory(request):
         'products_list': products_list
     }
 
-    return render(request, 'core/inventory.html', context=context)
+    return render(request, 'core/inventory.html', context)
+
+
+
+def edit_product(request, product_id):
+
+    product = core_models.Product.objects.get(pk=product_id)
+
+    context = {
+        'product': product
+    }
+
+    return render(request, 'core/product.html', context)
