@@ -25,7 +25,7 @@ class Order(models.Model):
 class Payment(models.Model):
     order = models.ForeignKey(Order, on_delete=models.CASCADE)
     amount = models.IntegerField("Cantidad de Pago", default=0)
-    
+    order = models.ForeignKey("Order", on_delete=models.CASCADE)
     # Payment Methods
     DEBIT = "DEBI"
     CREDIT = "CRED"
