@@ -18,12 +18,12 @@ admin.site.register(core_models.Product, ProductAdmin)
 class OrderAdmin(admin.ModelAdmin):
     fieldsets = [
         ("Edit Order",
-         {"fields": ["product"]}
+         {"fields": ["ordered_by", "product"]}
         )
     ]
 
     list_filter = ["product", "updated_datetime", "created_datetime"]
-    list_display = ["product", "updated_datetime", "created_datetime"]
+    list_display = ["ordered_by", "product", "updated_datetime", "created_datetime"]
 
 admin.site.register(core_models.Order, OrderAdmin)
 
