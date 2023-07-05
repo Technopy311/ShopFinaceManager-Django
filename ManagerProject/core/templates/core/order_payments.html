@@ -19,16 +19,18 @@
                 <th scope="col">Corresponding Product</th>
                 <th scope="col">Created Datetime</th>
                 <th scope="col">Updated Datetime</th>
+                <th scope="col">Edit</th>
               </tr>
             </thead>
             <tbody>
             {% for order in orders_list %}
               <tr>
                 <th scope="row">{{order.pk}}</th>
-                <th scope="row">{{order.ordered_by}}</th>
+                <th>{{order.ordered_by}}</th>
                 <td>{{order.product}}</td>
                 <td>{{order.created_datetime}}</td>
                 <td>{{order.updated_datetime}}</td>
+                <td><a href="{% url 'order' order.pk %}">View order</a></td>
               </tr>
             {% endfor %}
             </tbody>
@@ -56,10 +58,10 @@
               <tr>
                 <th scope="row">{{payment.pk}}</th>
                 <td>{{payment.order}}</td>
-                <td>{{payment.amount}}</td>
+                <td>$ {{payment.amount}}</td>
                 <td>
-                {% if payment.status %}✅
-                {% else %}⛔
+                {% if payment.status %}✅ Paid
+                {% else %}⛔ Not Paid
                 {% endif %}
                 </td>
                 <td>{{payment.method}}</td>

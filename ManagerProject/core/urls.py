@@ -8,8 +8,8 @@ urlpatterns = [
     path('product/<int:product_id>', core_views.edit_product, name='edit_product'),
 
     path('orders/', core_views.orders , name='orders'),
-    path('order/<int:order_id>', core_views.edit_order, name='edit_product'),
+    path('order/<int:order_id>', core_views.edit_order, name='order'),
 
     path('payments/', core_views.payments , name='payments'),
-    path('payment/<int:payment_id>', core_views.edit_payment, name='edit_product'),
+    path('payment/<int:payment_id>', core_views.edit_payment, name=''),
 ]

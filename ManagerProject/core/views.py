@@ -77,13 +77,17 @@ def edit_order(request, order_id):
         View to edit an order
     """
 
-    product = core_models.Product.objects.get(pk=order_id)
+    order = core_models.Order.objects.get(pk=order_id)
+    
+    payment_list = order.payment_set.all()
+
 
     context = {
-        'product': product
+        'order': order,
+        'payment_list': payment_list
     }
 
-    return render(request, 'core/product.html', context)
+    return render(request, 'core/order.html', context)
 
 
 
@@ -108,10 +112,10 @@ def edit_payment(request, payment_id):
         View to edit a payment
     """
 
-    product = core_models.Product.objects.get(pk=payment_id)
+    payment = core_models.Payment.objects.get(pk=payment_id)
 
     context = {
-        'product': product
+        'payment': payment
     }
 
-    return render(request, 'core/product.html', context)
+    return render(request, 'core/payment.html', context)

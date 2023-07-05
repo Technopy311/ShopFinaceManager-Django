@@ -4,7 +4,8 @@ from django.db import models
 
 class Product(models.Model):
     name = models.CharField("Product Name", default="Product", max_length=200)
-    price = models.IntegerField("Product Price", default=0)
+    price_sell = models.IntegerField("Product sell Price", default=0)
+    price_cost = models.IntegerField("Product cost Price", default=0)
     stock = models.IntegerField("Product Stock", default=0)
     description = models.TextField("Product Description", default="", max_length=300)
     image = models.ImageField("Product Image", default=None)
@@ -17,6 +18,7 @@ class Order(models.Model):
     ordered_by = models.CharField("Person who ordered", max_length=100, default="---")
     created_datetime = models.DateTimeField("Created datetime", auto_now_add=True)
     updated_datetime = models.DateTimeField("Updated datetime", auto_now=True)
+    
     product = models.ForeignKey(
         "Product",
         on_delete=models.CASCADE,
@@ -29,18 +31,13 @@ class Order(models.Model):
 class Payment(models.Model):
     order = models.ForeignKey(Order, on_delete=models.CASCADE)
     amount = models.IntegerField("Payment amount", default=0)
-    status = models.BooleanField("Paid", default=False)
-    # Payment Methods
-    DEBIT = "DEBI"
-    CREDIT = "CRED"
-    CASH = "CASH"
-    OTHER = "OTR"
+    status = models.BooleanField("Payment Confimation", default=False)
     
     payment_method_choices = [
-        (DEBIT, "Debit Card"),
-        (CREDIT, "Credit Card"),
-        (CASH, "Cash"),
-        (OTHER, "Other Method")
+        ("Debit Card", "Debit Card"),
+        ("Credit Card", "Credit Card"),
+        ("Cash", "Cash"),
+        ("Other Method", "Other Method")
     ]
 
     method = models.CharField(choices=payment_method_choices, default="", max_length=40)

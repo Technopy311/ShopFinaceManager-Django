@@ -5,12 +5,12 @@ from . import models as core_models
 class ProductAdmin(admin.ModelAdmin):
     fieldsets = [
         ("Edit Product",
-         {"fields": ["name", "price", "stock", "description", "image"]}
+         {"fields": ["name", "price_sell", "price_cost" "stock", "description", "image"]}
         )
     ]
 
-    list_filter = ["price", "stock", "name"]
-    list_display = ["name", "price", "stock"]
+    list_filter = ["price_sell", "stock", "name"]
+    list_display = ["name", "price_sell", "stock"]
 
 admin.site.register(core_models.Product, ProductAdmin)
 
