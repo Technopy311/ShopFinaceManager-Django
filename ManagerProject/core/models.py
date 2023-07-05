@@ -19,13 +19,13 @@ class Order(models.Model):
     product = models.ForeignKey(
         "Product",
         on_delete=models.CASCADE,
-        )
+    )
 
 
 class Payment(models.Model):
     order = models.ForeignKey(Order, on_delete=models.CASCADE)
     amount = models.IntegerField("Cantidad de Pago", default=0)
-    order = models.ForeignKey("Order", on_delete=models.CASCADE)
+    status = models.BooleanField("Paid", default=False)
     # Payment Methods
     DEBIT = "DEBI"
     CREDIT = "CRED"
@@ -38,3 +38,5 @@ class Payment(models.Model):
         (CASH, "Cash"),
         (OTHER, "Other Method")
     ]
+
+    method = models.CharField(choices=payment_method_choices, default="", max_length=40)

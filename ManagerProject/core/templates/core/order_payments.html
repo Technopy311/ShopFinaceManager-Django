@@ -1,0 +1,24 @@
+{% extends 'core/base.html' %}
+
+
+{% block inbody %}
+
+<div class="container d-flex justify-content-center align-items-center">
+
+    {% if orders_list %}
+
+        <div class="col-8 mt-4 border text-center">
+            <h1>orders</h1>
+        </div>
+
+    {% elif payments_list %}
+
+        <div class="col-8 mt-4 border">
+            <h1>payments</h1>
+        </div>
+    
+    {% endif %}
+    
+</div>
+
+{% endblock %}
