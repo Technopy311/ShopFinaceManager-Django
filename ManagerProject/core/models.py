@@ -18,7 +18,9 @@ class Order(models.Model):
     ordered_by = models.CharField("Person who ordered", max_length=100, default="---")
     created_datetime = models.DateTimeField("Created datetime", auto_now_add=True)
     updated_datetime = models.DateTimeField("Updated datetime", auto_now=True)
-    
+    completed = models.BooleanField("Order Status", default=False)
+
+
     product = models.ForeignKey(
         "Product",
         on_delete=models.CASCADE,
