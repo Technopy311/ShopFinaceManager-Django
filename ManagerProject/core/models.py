@@ -45,3 +45,33 @@ class Payment(models.Model):
 
     def __str__(self):
         return f"{self.amount} -- {self.status}"
+
+
+class Transaction(models.Model):
+    date = models.DateTimeField("Transaction's date", auto_now=True)
+    order = models.ForeignKey("Order", on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"Transaction #{self.pk}"
+    
+
+    def get_cost(self):
+        transaction_products = self.order.product.objects.all()
+        cost = 0
+        
+        for product in transaction_products:
+            print(product.price_cost)
+            cost += product.price_cost
+
+        return cost
+    
+
+    def get_profit(self):
+        transaction_products = self.order.product.objects.all()
+
+        total_profit = 0
+
+        for product in transaction_products:
+            total_profit += (product.price_sell - product.price_cost)
+
+        return total_profit
