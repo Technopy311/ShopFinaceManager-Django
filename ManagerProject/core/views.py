@@ -19,15 +19,6 @@ def index(request):
     return render(request, 'core/index.html', context)
 
 
-def finances(request):
-
-    """
-        Finances Dashboard
-    """
-
-    return render(request, 'core/finances.html')
-
-
 def inventory(request):
 
     """
@@ -119,3 +110,5 @@ def edit_payment(request, payment_id):
     }
 
     return render(request, 'core/payment.html', context)
+
+

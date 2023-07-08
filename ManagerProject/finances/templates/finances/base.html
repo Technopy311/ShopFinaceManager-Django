@@ -1,0 +1,27 @@
+{% extends 'core/base.html' %}
+
+{% block inbody %}
+
+<div class="container d-flex justify-content-center align-items-center flex-column">
+
+    <ul class="nav justify-content-center">
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="{% url 'transactions' %}">Transactions</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'income' %}">Income Statistics</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'profit' %}">Profit Statistics</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'costs' %}">Costs Statistics</a>
+      </li>
+    </ul>
+
+</div>
+
+{% block infinance %}
+{% endblock %}
+
+{% endblock %}

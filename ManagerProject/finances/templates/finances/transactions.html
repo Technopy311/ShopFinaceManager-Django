@@ -1,0 +1,42 @@
+{% extends 'finances/base.html' %}
+
+
+
+{% block infinance %}
+
+<div class="container d-flex justify-content-center align-items-center flex-column">
+
+    <div class="col-8 my-4 text-center">
+        <h1>TRANSACTIONS</h1>
+    </div>
+
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Date</th>
+            <th scope="col">Corresponding Order</th>
+            <th scope="col">Total Profit</th>
+            <th scope="col">Total Income</th>
+            <th scope="col">Total Cost</th>
+            <th scope="col">Detail</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for transaction in transaction_list %}
+          <tr>
+            <th scope="row">{{transaction.pk}}</th>
+            <th>{{transaction.date}}</th>
+            <td>{{transaction.order}}</td>
+            <td>{{transaction.total_profit}}</td>
+            <td>{{transaction.total_income}}</td>
+            <td>{{transaction.total_cost}}</td>
+            <td><a href="{% url 'transaction' transaction.pk %}">View transaction</a></td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+
+</div>
+
+{% endblock %}
