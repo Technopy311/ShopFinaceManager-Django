@@ -1,8 +1,26 @@
-{% extends 'finances/base.html' %}
+{% extends 'core/base.html' %}
 
 
+{% block inbody %}
 
-{% block infinance %}
+<div class="container d-flex justify-content-center align-items-center flex-column">
+    <ul class="nav nav-tabs justify-content-center">
+      <li class="nav-item">
+        <a class="nav-link"  href="{% url 'transactions' %}">Transactions</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="{% url 'income' %}">Income</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'profit' %}">Profit</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" href="{% url 'costs' %}">Costs</a>
+        </li> 
+    </ul>
+</div>
+
+
 
 
 {% endblock %}

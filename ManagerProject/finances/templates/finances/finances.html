@@ -1,50 +1,63 @@
-{% extends 'finances/base.html' %}
+{% extends 'core/base.html' %}
 
 
-{% block infinance %}
+{% block inbody %}
+
+<div class="container-fluid d-flex justify-content-center align-items-middle">
+  <h1>
+    FINANCES
+  </h1>
+</div>
 
 <div class="container-fluid my-auto py-4 h-100 d-flex flex-column justify-content-center">
   
   <div class="row d-flex justify-content-evenly flex-row my-4">
-    <div class="card" style="width: 18rem;">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="card-link">Card link</a>
-        <a href="#" class="card-link">Another link</a>
-      </div>
+    
+    <div class="card text-bg-light" style="width: 18rem;">
+      <a href="{% url 'transactions' %}" class="link-underline link-underline-opacity-100-hover link-underline-opacity-0 text-reset">
+        <div class="card-body">
+          <h5 class="card-title">Transactions</h5>
+          <h6 class="card-subtitle mb-2 text-body-secondary">View Transactions</h6>
+          <p class="card-text">Edit, and analyze all the performed transactions.</p>
+        </div>
+      </a>
     </div>
-    <div class="card" style="width: 18rem;">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="card-link">Card link</a>
-        <a href="#" class="card-link">Another link</a>
-      </div>
+
+    <div class="card text-bg-light" style="width: 18rem;">
+      <a href="{% url 'income' %}" class="link-underline link-underline-opacity-100-hover link-underline-opacity-0 text-reset">
+        <div class="card-body">
+          <h5 class="card-title">Income</h5>
+          <h6 class="card-subtitle mb-2 text-body-secondary">View Income.</h6>
+          <p class="card-text">Analyze the Shop's Income through diverse charts and summaries.</p>
+        </div>
+      </a>
     </div>
+
   </div>
 
+
   <div class="row d-flex justify-content-evenly flex-row my-4">
-    <div class="card" style="width: 18rem;">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="card-link">Card link</a>
-        <a href="#" class="card-link">Another link</a>
-      </div>
+    
+    <div class="card text-bg-light" style="width: 18rem;">
+      <a href="{% url 'profit' %}" class="link-underline link-underline-opacity-100-hover link-underline-opacity-0 text-reset">
+        <div class="card-body">
+          <h5 class="card-title">Profit</h5>
+          <h6 class="card-subtitle mb-2 text-body-secondary">View Profit</h6>
+          <p class="card-text">Examine the bussine's profit all in the same place.</p>
+        </div>
+      </a>
     </div>
-    <div class="card" style="width: 18rem;">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="card-link">Card link</a>
-        <a href="#" class="card-link">Another link</a>
-      </div>
+
+    <div class="card text-bg-light" style="width: 18rem;">
+      <a href="{% url 'costs' %}" class="link-underline link-underline-opacity-100-hover link-underline-opacity-0 text-reset">
+        <div class="card-body">
+          <h5 class="card-title">Costs</h5>
+          <h6 class="card-subtitle mb-2 text-body-secondary">View Costs.</h6>
+          <p class="card-text">Audit the enterprise's costs</p>
+        </div>
+      </a>
     </div>
+
   </div>
 
 
