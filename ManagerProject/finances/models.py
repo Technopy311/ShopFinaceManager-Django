@@ -13,4 +13,20 @@ class Transaction(models.Model):
 
     def __str__(self):
         return f"Transaction #{self.pk}"
+
+
+    def calc_cost(self):
+    
+        for product in self.order.product.objects.all():
+            self.total_cost += product.price_cost()
+
+
+    def calc_income(self):
+        for product in self.order.product.objects.all():
+            self.total_income += product.price_sell()
+
+
+    def calc_profit(self):
+        self.total_profit = self.total_income - self.total_cost
+
     

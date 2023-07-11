@@ -33,7 +33,7 @@ class Payment(models.Model):
     order = models.ForeignKey(Order, on_delete=models.CASCADE)
     amount = models.IntegerField("Payment amount", default=0)
     status = models.BooleanField("Payment Confimation", default=False)
-    
+
     payment_method_choices = [
         ("Debit Card", "Debit Card"),
         ("Credit Card", "Credit Card"),
