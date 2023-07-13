@@ -16,7 +16,7 @@
               <tr>
                 <th scope="col">#</th>
                 <th scope="col">Ordered by</th>
-                <th scope="col">Corresponding Product</th>
+                <th scope="col">Profit</th>
                 <th scope="col">Created Datetime</th>
                 <th scope="col">Updated Datetime</th>
                 <th scope="col">Status</th>
@@ -28,13 +28,13 @@
               <tr>
                 <th scope="row">{{order.pk}}</th>
                 <th>{{order.ordered_by}}</th>
-                <td>{{order.product}}</td>
+                <td>${{order.transaction.total_profit}}</td>
                 <td>{{order.created_datetime}}</td>
                 <td>{{order.updated_datetime}}</td>
                 {% if order.completed %}
                 <td>✅</td>
-                {% else %
-                <td>⛔</td>}
+                {% else %}
+                <td>⛔</td>
                 {% endif %}
                 <td><a href="{% url 'order' order.pk %}">View order</a></td>
               </tr>
