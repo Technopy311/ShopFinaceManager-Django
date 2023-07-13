@@ -71,21 +71,6 @@ def inventory(request):
     return render(request, 'core/inventory.html', context)
 
 
-def edit_product(request, product_id):
-
-    """
-        View to edit product
-    """
-
-    product = core_models.Product.objects.get(pk=product_id)
-
-    context = {
-        'product': product
-    }
-
-    return render(request, 'core/product.html', context)
-
-
 def orders(request):
     """
         Orders Dashboard

@@ -22,7 +22,7 @@
         <h5 class="card-title">{{product.name}}</h5>
         <p class="card-text">{{product.description}}</p>
         <p class="card-text">$ {{product.price_sell}}</p>
-        <a href="{% url 'edit_product' product.id %}" >Edit product</a>
+        <a href="/admin/core/product/{{product.pk}}/change/" >Edit product</a>
       </div>
     </div>
     {% endfor %}
