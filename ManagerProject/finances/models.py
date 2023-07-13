@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models import Sum
 from core.models import Order
 
 
@@ -12,21 +13,21 @@ class Transaction(models.Model):
 
 
     def __str__(self):
-        return f"Transaction #{self.pk}"
+        return f"Transaction #{self.pk} -- {self.order.ordered_by}"
 
 
-    def calc_cost(self):
-    
-        for product in self.order.product.objects.all():
-            self.total_cost += product.price_cost()
+    def save(self, *args, **kwargs):
+        
+        data = self.order.product_set.aggregate(
+            Sum('price_cost',),
+            Sum('price_sell')
+        )
 
 
-    def calc_income(self):
-        for product in self.order.product.objects.all():
-            self.total_income += product.price_sell()
+        self.total_cost = data['price_cost__sum']
+        self.total_income = data['price_sell__sum']
 
-
-    def calc_profit(self):
         self.total_profit = self.total_income - self.total_cost
 
+        return super().save(*args, **kwargs)
     
