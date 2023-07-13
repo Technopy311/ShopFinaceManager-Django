@@ -3,9 +3,10 @@ from django.db.models import Sum
 from core.models import Order
 
 
+
 class Transaction(models.Model):
     date = models.DateTimeField("Transaction's date", auto_now=True)
-    order = models.ForeignKey(Order, on_delete=models.CASCADE)        
+    order = models.OneToOneField(Order, on_delete=models.SET_NULL, null=True)
 
     total_profit = models.IntegerField("Transaction's Profit", default=0)
     total_cost = models.IntegerField("Transaction's Income", default=0)
@@ -18,7 +19,7 @@ class Transaction(models.Model):
 
     def save(self, *args, **kwargs):
         
-        data = self.order.product_set.aggregate(
+        data = self.order.products.aggregate(
             Sum('price_cost',),
             Sum('price_sell')
         )
