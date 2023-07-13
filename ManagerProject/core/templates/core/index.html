@@ -61,31 +61,48 @@
 
       <div class="col">
         <h2>
-          Sales Summary
+          Profit By Month
         </h2>
       </div>
     </div>
+    
     <div class="row">
+      <!-- Latest Sales -->
 
       <div class="col col-6 mt-4 mx-auto">
-        <div class="row border rounded d-flex justify-content-center align-items-center mt-2 mb-2 gy-1">
-          
-          <div class="col col-1">
-            <p>1</p>
-          </div>
-          <div class="col col-5">
-            <h6>Foo</h6>
-          </div>
-          <div class="col col-3">
-            <p>qty: 1</p>
-          </div>
-          <div class="col col-3">
-            <p>left stock: bar</p>
-          </div>  
-          
-        </div>        
+        
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Ordered by</th>
+              <th scope="col">Income</th>
+              <th scope="col">Profit</th>
+              <th scope="col">Status</th>
+              <th scope="col">Edit</th>
+            </tr>
+          </thead>
+          <tbody>
+          {% for transaction in latest_sales %}
+            <tr>
+              <th scope="row">{{transaction.pk}}</th>
+              <th>{{transaction.order.ordered_by}}</th>
+              <td>{{transaction.total_income}}</td>
+              <td>{{transaction.total_profit}}</td>
+              {% if transaction.order.completed %}
+              <td>✅</td>
+              {% else %}
+              <td>⛔</td>
+              {% endif %}
+              <td><a href="{% url 'transaction' transaction.pk %}">Detail</a></td>
+            </tr>
+          {% endfor %}
+          </tbody>
+      </table>
+
       </div>
 
+      <!-- Profit by Month Chart -->
       <div class="col col-6" style="text-align: center;">
         <canvas class="mx-auto w-75 my-4"  id="salesSummaryChart"></canvas>
       </div>
@@ -108,10 +125,10 @@
       new Chart(salesSummary,{
         type: 'line',
         data: {
-          labels:['Month 1', 'Month 2', 'Month 3', 'Month 4'],
+          labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'],
           datasets: [{
-            label: '# of Sales',
-            data: [0, 1, 2, 3],
+            label: 'Profit',
+            data: [{% for profit in profit_by_month %}{{profit}},{% endfor %}],
             borderWidth: 1
           }]
         },
