@@ -75,20 +75,10 @@ def edit_transaction(request, transaction_id):
     """
 
     transaction = finance_models.Transaction.objects.get(pk=transaction_id)
-    payment_list = transaction.order.payment_set.all()
-    order = transaction.order()
-    products = order.product()
-
-    transaction_profit = 0
-    transaction_income = 0
-    transaction_cost = 0
-
-    # for product in order.:
-    #     transaction_cost += 
     
 
     context = {
         
     }
 
-    return render(request, 'finance/transaction.html', context)
+    return render(request, 'finances/transaction.html', context)
