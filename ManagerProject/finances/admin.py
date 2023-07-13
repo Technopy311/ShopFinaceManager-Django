@@ -8,7 +8,7 @@ class TransactionAdmin(admin.ModelAdmin):
         )
     ]
 
-    list_filter = ["order"]
-    list_display = ["order"]
+    list_filter = ["date", "order"]
+    list_display = ["date", "order"]
 
 admin.site.register(finances_models.Transaction, TransactionAdmin)
