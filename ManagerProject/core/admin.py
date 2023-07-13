@@ -4,9 +4,12 @@ from . import models as core_models
 
 class ProductAdmin(admin.ModelAdmin):
     fieldsets = [
-        ("Edit Product",
-         {"fields": ["name", "price_sell", "price_cost", "stock", "description", "image"]}
+        ("Main details",
+         {"fields": ["name", "description", "image"]}
         ),
+        ("Finances - Any change here affects ALL transactions",
+         {"fields": ["price_sell", "price_cost", "stock"]}
+        )
     ]
 
     list_filter = ["price_sell", "stock", "name"]
