@@ -7,13 +7,10 @@ class ProductAdmin(admin.ModelAdmin):
         ("Edit Product",
          {"fields": ["name", "price_sell", "price_cost", "stock", "description", "image"]}
         ),
-        ("Order",
-         {"fields": ["order"]}
-        )
     ]
 
-    list_filter = ["price_sell", "stock", "name", "order"]
-    list_display = ["name", "price_sell", "stock", "order"]
+    list_filter = ["price_sell", "stock", "name"]
+    list_display = ["name", "price_sell", "stock"]
 
 admin.site.register(core_models.Product, ProductAdmin)
 
@@ -21,10 +18,13 @@ admin.site.register(core_models.Product, ProductAdmin)
 class OrderAdmin(admin.ModelAdmin):
     fieldsets = [
         ("Edit Order",
-         {"fields": ["ordered_by"]}
+         {"fields": ["ordered_by", "completed"]}
+        ),
+        ("Add products",
+         {"fields": ["products"]}
         )
     ]
-
+    filter_horizontal = ('products', )
     list_filter = ["updated_datetime", "created_datetime"]
     list_display = ["ordered_by", "updated_datetime", "created_datetime"]
 
