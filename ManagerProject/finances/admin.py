@@ -5,6 +5,9 @@ class TransactionAdmin(admin.ModelAdmin):
     fieldsets = [
         ("Edit Transaction",
          {"fields": ["order"]}
+        ),
+        ("Finance values - only edit if necessary",
+         {"fields": ["total_profit", "total_income", "total_cost"]}
         )
     ]
 
